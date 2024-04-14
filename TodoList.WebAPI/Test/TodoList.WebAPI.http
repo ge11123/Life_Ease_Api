@@ -1,0 +1,17 @@
+﻿@TodoList.WebAPI_HostAddress = https://localhost:44375
+
+GET {{TodoList.WebAPI_HostAddress}}/api/todo
+
+###
+
+POST {{TodoList.WebAPI_HostAddress}}/api/todo
+
+###
+
+PUT {{TodoList.WebAPI_HostAddress}}/api/todo
+
+###
+
+DELETE {{TodoList.WebAPI_HostAddress}}/api/todo
+
+###
