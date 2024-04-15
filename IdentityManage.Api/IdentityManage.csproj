@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>cfc4c301-ba15-4a53-8e4f-22297f4fe19a</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="src\IdentityManage.Application\Commands\" />
+    <Folder Include="src\IdentityManage.Application\Validtor\" />
+    <Folder Include="src\IdentityManage.Application\Services\" />
+    <Folder Include="src\IdentityManage.Application\Queries\" />
+    <Folder Include="src\IdentityManage.Domain\Entities\" />
+    <Folder Include="src\IdentityManage.Infrastructure\" />
+  </ItemGroup>
+
+</Project>
