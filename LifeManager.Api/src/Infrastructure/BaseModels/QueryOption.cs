@@ -1,4 +1,4 @@
-﻿namespace TodoList.WebAPI.src.TodoList.Infrastructure.BaseModels
+﻿namespace LifeManage.src.Infrastructure.BaseModels
 {
 	public class QueryOption
 	{

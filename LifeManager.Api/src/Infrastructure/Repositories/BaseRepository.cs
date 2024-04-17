@@ -4,10 +4,10 @@ using System.Data;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Security.Claims;
-using TodoList.WebAPI.src.TodoList.Infrastructure.BaseModels;
-using TodoList.WebAPI.src.TodoList.Infrastructure.Repositories.Interfaces;
+using LifeManage.src.Infrastructure.BaseModels;
+using LifeManage.src.Infrastructure.Repositories.Interfaces;
 
-namespace TodoList.WebAPI.src.TodoList.Infrastructure.Repositories
+namespace LifeManage.src.Infrastructure.Repositories
 {
 	public class BaseRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
 	{
@@ -107,7 +107,7 @@ namespace TodoList.WebAPI.src.TodoList.Infrastructure.Repositories
 			}
 		}
 
-		
+
 
 		public async Task<List<T>> QueryAsync<T>(Expression<Func<TEntity, bool>> predicate)
 		{

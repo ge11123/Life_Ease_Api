@@ -1,7 +1,7 @@
 ﻿using System.Linq.Expressions;
-using TodoList.WebAPI.src.TodoList.Infrastructure.BaseModels;
+using LifeManage.src.Infrastructure.BaseModels;
 
-namespace TodoList.WebAPI.src.TodoList.Infrastructure.Repositories.Interfaces
+namespace LifeManage.src.Infrastructure.Repositories.Interfaces
 {
 	public interface IGenericRepository<TEntity> : IDisposable where TEntity : class
 	{

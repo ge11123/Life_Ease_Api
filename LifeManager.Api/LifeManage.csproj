@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="MediatR" Version="12.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
       <PrivateAssets>all</PrivateAssets>
@@ -27,12 +28,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="src\LifeManager.Application\Handlers\" />
-    <Folder Include="src\LifeManager.Application\Queries\" />
-    <Folder Include="src\LifeManager.Application\Services\Interfaces\" />
-    <Folder Include="src\LifeManager.Application\Commands\" />
-    <Folder Include="src\LifeManager.Application\Services\" />
-    <Folder Include="src\LifeManager.Domain\entities\" />
+    <Folder Include="src\Application\DTOs\" />
+    <Folder Include="src\Application\Services\Interfaces\" />
+    <Folder Include="src\Application\Commands\" />
+    <Folder Include="src\Application\Services\" />
+    <Folder Include="src\Domain\entities\" />
   </ItemGroup>
 
 </Project>
