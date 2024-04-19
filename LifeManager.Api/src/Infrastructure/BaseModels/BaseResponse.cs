@@ -1,10 +1,18 @@
-﻿namespace LifeManage.src.Infrastructure.BaseModels
-{
-	public class BaseResponse<TData>(TData data)
-	{
-		public string Code { get; set; } = "200";
-		public string Status { get; set; } = "success";
+﻿using LifeManage.src.Application.Enums;
+using LifeManage.src.Infrastructure.Extensions;
 
-		public TData Data { get; set; } = data;
+namespace LifeManage.src.Infrastructure.BaseModels
+{
+	public class BaseResponse<TData>
+	{
+		public int Code { get; set; } = (int)SystemStatusEnum.Success;
+		public string Status { get; set; } = SystemStatusEnum.Success.GetEnumDescription();
+		public TData Data { get; set; }
+
+		public BaseResponse(TData data)
+		{
+			Data = data;
+		}
+
 	}
 }
