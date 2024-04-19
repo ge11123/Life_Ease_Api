@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MediatR;
+﻿using LifeManage.src.Application.Handlers;
 using LifeManage.src.Application.Queries.Todo;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LifeManage.src.Api.Controllers
 {
@@ -16,7 +17,7 @@ namespace LifeManage.src.Api.Controllers
 		[HttpGet]
 		public async Task<IActionResult> Get()
 		{
-			return HandleResult(await _mediator.Send(new GetTodoRequest()));
+			return HandleResult(await _mediator.Send(new GetTodoCommand()));
 		}
 
 		[HttpPost]

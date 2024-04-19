@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
+using LifeManage.src.Infrastructure.BaseModels;
+using LifeManage.src.Infrastructure.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Data;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Security.Claims;
-using LifeManage.src.Infrastructure.BaseModels;
-using LifeManage.src.Infrastructure.Repositories.Interfaces;
 
 namespace LifeManage.src.Infrastructure.Repositories
 {

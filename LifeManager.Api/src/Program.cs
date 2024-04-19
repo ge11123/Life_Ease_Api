@@ -1,12 +1,15 @@
 using LifeManage.src.Application.StartUp;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Configuration.AddJsonFile();
+
+builder.Services.AddControllers();
 
 // Add services to the container.
 builder.Services.AddApplicationServices();
 builder.Services.AddRepository(builder.Configuration);
 
-builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

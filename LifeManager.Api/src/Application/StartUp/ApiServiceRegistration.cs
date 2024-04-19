@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace LifeManage.src.Application.StartUp
 {
@@ -11,6 +10,7 @@ namespace LifeManage.src.Application.StartUp
 
 			services.AddAutoMapper(Assembly.GetExecutingAssembly());
 			//services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+
 			//Route設定生成小寫的Url 
 			services.AddRouting(options =>
 			{

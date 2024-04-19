@@ -1,5 +1,5 @@
-﻿using System.Linq.Expressions;
-using LifeManage.src.Infrastructure.BaseModels;
+﻿using LifeManage.src.Infrastructure.BaseModels;
+using System.Linq.Expressions;
 
 namespace LifeManage.src.Infrastructure.Repositories.Interfaces
 {

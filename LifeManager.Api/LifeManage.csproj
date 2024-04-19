@@ -4,7 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <InvariantGlobalization>true</InvariantGlobalization>
+    <InvariantGlobalization>false</InvariantGlobalization>
     <UserSecretsId>562076d8-eeb0-45d8-8bce-ef514db359f8</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>.</DockerfileContext>
@@ -32,7 +32,6 @@
     <Folder Include="src\Application\Services\Interfaces\" />
     <Folder Include="src\Application\Commands\" />
     <Folder Include="src\Application\Services\" />
-    <Folder Include="src\Domain\entities\" />
   </ItemGroup>
 
 </Project>

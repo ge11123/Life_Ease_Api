@@ -1,8 +1,6 @@
-﻿using MediatR;
-
-namespace LifeManage.src.Application.Queries.Todo
+﻿namespace LifeManage.src.Application.Queries.Todo
 {
-	public class GetTodoRequest : IRequest<GetTodoResponse>
+	public class GetTodoRequest
 	{
 	}
 }
