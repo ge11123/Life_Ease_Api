@@ -1,4 +1,6 @@
 ﻿using LifeManage.src.Domain;
+using LifeManage.src.Infrastructure.Repositories;
+using LifeManage.src.Infrastructure.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace LifeManage.src.Application.StartUp
@@ -10,6 +12,9 @@ namespace LifeManage.src.Application.StartUp
 			var con = configuration.GetConnectionString("DefaultConnection");
 			services.AddDbContext<LifeEaseDbContext>(options =>
 					options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
+
+			services.AddScoped<ITodoRepository, TodoRepository>();
 
 			return services;
 		}

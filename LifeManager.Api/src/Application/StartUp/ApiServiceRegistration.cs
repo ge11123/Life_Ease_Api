@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Security.Claims;
 
 namespace LifeManage.src.Application.StartUp
 {
@@ -19,5 +20,15 @@ namespace LifeManage.src.Application.StartUp
 
 			return services;
 		}
+
+		public static IServiceCollection AddAuth(this IServiceCollection services)
+		{
+			services.AddScoped<ClaimsPrincipal>(s =>
+				s.GetService<IHttpContextAccessor>().HttpContext.User);
+
+			services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+			return services;
+		}
+
 	}
 }
