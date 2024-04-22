@@ -1,5 +1,4 @@
 ﻿using LifeManage.src.Application.Handlers;
-using LifeManage.src.Application.Queries.Todo;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,17 +13,17 @@ namespace LifeManage.src.Api.Controllers
 			_mediator = mediator;
 		}
 
-		[HttpGet]
-		public async Task<IActionResult> Get()
+		[HttpPost]
+		public async Task<IActionResult> GetTodoIsDone([FromBody] GetTodoQuery req)
 		{
-			return HandleResult(await _mediator.Send(new GetTodoCommand()));
+			return HandleResult(await _mediator.Send(req));
 		}
 
-		[HttpPost]
-		public IActionResult Post()
-		{
-			return Ok("Hello World");
-		}
+		//[HttpPost]
+		//public IActionResult Post()
+		//{
+		//	return Ok("Hello World");
+		//}
 
 		[HttpPut]
 		public IActionResult Put()

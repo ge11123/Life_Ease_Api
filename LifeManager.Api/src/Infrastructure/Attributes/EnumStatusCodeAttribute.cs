@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using System.Net;
+﻿using System.Net;
 
 namespace LifeManage.src.Infrastructure.Attributes
 {
@@ -7,8 +6,8 @@ namespace LifeManage.src.Infrastructure.Attributes
 	public class EnumStatusCodeAttribute : Attribute
 	{
 		public HttpStatusCode HttpStatusCode { get; set; }
-        public EnumStatusCodeAttribute(HttpStatusCode httpStatusCode)
-        {
+		public EnumStatusCodeAttribute(HttpStatusCode httpStatusCode)
+		{
 			HttpStatusCode = httpStatusCode;
 		}
 	}

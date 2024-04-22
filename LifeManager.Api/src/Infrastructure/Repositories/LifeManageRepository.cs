@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
 using LifeManage.src.Domain;
-using LifeManage.src.Domain.entities;
-using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
 namespace LifeManage.src.Infrastructure.Repositories

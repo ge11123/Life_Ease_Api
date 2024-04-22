@@ -9,6 +9,6 @@ namespace LifeManage.src.Application.Enums
 		[EnumStatusCode(HttpStatusCode.OK)]
 		[Description("Sucess")]
 		Success = 200,
-		
+
 	}
 }
