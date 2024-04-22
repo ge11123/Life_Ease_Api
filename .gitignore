@@ -1,8 +1,8 @@
 *.csproj.user
 .vs/
 
-bin/
-obj/
+[Bb]in/
+[Oo]bj/
 
 LifeManager.Api/bin/
 LifeManager.Api/obj/
