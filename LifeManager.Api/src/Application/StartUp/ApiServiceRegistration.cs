@@ -1,4 +1,7 @@
-﻿using System.Reflection;
+﻿using FluentValidation;
+using LifeManage.src.Application.Behavior;
+using MediatR;
+using System.Reflection;
 using System.Security.Claims;
 
 namespace LifeManage.src.Application.StartUp
@@ -8,9 +11,10 @@ namespace LifeManage.src.Application.StartUp
 		public static IServiceCollection AddApplicationServices(this IServiceCollection services)
 		{
 			services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+			services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+			services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
 			services.AddAutoMapper(Assembly.GetExecutingAssembly());
-			//services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
 			//Route設定生成小寫的Url 
 			services.AddRouting(options =>

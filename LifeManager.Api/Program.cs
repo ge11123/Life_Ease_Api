@@ -1,9 +1,13 @@
+using LifeManage.src.Application.Filter;
 using LifeManage.src.Application.StartUp;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(c =>
+{
+	c.Filters.Add(typeof(ExceptionFilter));
+});
 
 // Add services to the container.
 builder.Services.AddApplicationServices();

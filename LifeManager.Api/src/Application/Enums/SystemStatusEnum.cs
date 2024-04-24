@@ -10,5 +10,12 @@ namespace LifeManage.src.Application.Enums
 		[Description("Sucess")]
 		Success = 200,
 
+		[EnumStatusCode(HttpStatusCode.BadRequest)]
+		[Description("Data Validation Failed")]
+		DataValidationError = 422,
+
+		[EnumStatusCode(HttpStatusCode.InternalServerError)]
+		[Description("Internal Server is Error")]
+		InternalServerError = 500,
 	}
 }
