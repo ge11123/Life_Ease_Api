@@ -1,13 +1,9 @@
 ﻿using LifeManage.src.Application.Behavior;
 using LifeManage.src.Application.Enums;
-using LifeManage.src.Infrastructure.BaseModels;
 using LifeManage.src.Infrastructure.Extensions;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Newtonsoft.Json;
-using System.Net;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Model;
 
 namespace LifeManage.src.Application.Filter
 {

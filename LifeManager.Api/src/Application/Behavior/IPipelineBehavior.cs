@@ -1,6 +1,4 @@
-﻿using MediatR;
-
-namespace LifeManage.src.Application.Behavior
+﻿namespace LifeManage.src.Application.Behavior
 {
 	//public interface IPipelineBehavior<in TRequest, TResponse> where TRequest : notnull
 	//{
