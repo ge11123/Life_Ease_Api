@@ -1,6 +1,6 @@
 ﻿namespace LifeManage.src.Application.Queries.Todo
 {
-	public record GetTodoResponse
+	public record GetTodoByIdResponse
 	{
 		public int Id { get; set; } 
 		public string Title { get; set; } = null!;

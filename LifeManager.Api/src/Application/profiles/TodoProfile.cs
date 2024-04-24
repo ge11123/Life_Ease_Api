@@ -8,7 +8,8 @@ namespace LifeManage.src.Application.profiles
 	{
 		public TodoProfile()
 		{
-			CreateMap<TodoList, GetTodoResponse>();
+			CreateMap<TodoList, GetTodoResponse>().ReverseMap();
+			CreateMap<TodoList, GetTodoByIdResponse>().ReverseMap();
 		}
 	}
 }

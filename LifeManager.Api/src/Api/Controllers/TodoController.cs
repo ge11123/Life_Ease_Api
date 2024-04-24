@@ -13,17 +13,18 @@ namespace LifeManage.src.Api.Controllers
 			_mediator = mediator;
 		}
 
-		[HttpPost]
-		public async Task<IActionResult> GetTodoIsDone([FromBody] GetTodoQuery req)
+		[HttpGet]
+		[Route("{id}")]
+		public async Task<IActionResult> GetTodoById(int id)
+		{
+			return HandleResult(await _mediator.Send(new GetTodoByIdQuery(id)));
+		}
+
+		[HttpGet]
+		public async Task<IActionResult> GetTodos([FromQuery] GetTodoQuery req)
 		{
 			return HandleResult(await _mediator.Send(req));
 		}
-
-		//[HttpPost]
-		//public IActionResult Post()
-		//{
-		//	return Ok("Hello World");
-		//}
 
 		[HttpPut]
 		public IActionResult Put()

@@ -7,8 +7,6 @@ namespace LifeManage.src.Application.Queries.Todo
 	{
 		public GetTodoCommandValidator()
 		{
-			RuleFor(todo => todo.IsDone).NotEmpty().WithMessage("not be null");
-			RuleFor(todo => todo.Id).NotEmpty().WithMessage("not be null");
 		}
 	}
 }

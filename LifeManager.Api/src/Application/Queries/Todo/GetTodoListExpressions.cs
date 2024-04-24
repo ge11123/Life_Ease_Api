@@ -10,9 +10,9 @@ namespace LifeManage.src.Application.Queries.Todo
 		public Expression<Func<TodoList, bool>> Expression(GetTodoQuery query)
 		{
 			Expression<Func<TodoList, bool>> expression = x => true;
-			if (query.IsDone != null)
+			if (query.IsCompleted != null)
 			{
-				expression = expression.And(x => x.IsDone == query.IsDone);
+				expression = expression.And(x => x.IsCompleted == query.IsCompleted);
 			}
 
 			if (query.CreateTime != null)
@@ -23,6 +23,11 @@ namespace LifeManage.src.Application.Queries.Todo
 			if (query.Id != null)
 			{
 				expression = expression.And(x => x.Id == query.Id);
+			}
+
+			if (query.DueTime != null)
+			{
+				expression = expression.And(x => x.DueDate == query.DueTime);
 			}
 
 			return expression;

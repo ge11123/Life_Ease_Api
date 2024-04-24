@@ -6,7 +6,7 @@ using LifeManage.src.Infrastructure.Repositories.Interfaces;
 
 namespace LifeManage.src.Application.Handlers
 {
-	public record GetTodoQuery(int? Id, DateTime? CreateTime, bool? IsDone) : IQuery<PageResult<GetTodoResponse>>;
+	public record GetTodoQuery(int? Id, DateTime? CreateTime, bool? IsCompleted, DateTime? DueTime) : IQuery<PageResult<GetTodoResponse>>;
 
 	public class GetTodoQueryHandler : IQueryHandler<GetTodoQuery, PageResult<GetTodoResponse>>
 	{
