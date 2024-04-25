@@ -2,6 +2,7 @@
 using LifeManage.src.Application.Handlers.Todo;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace LifeManage.src.Api.Controllers
 {
@@ -42,9 +43,11 @@ namespace LifeManage.src.Api.Controllers
 		}
 
 		[HttpDelete]
-		public IActionResult Delete()
+		[Route("{id}")]
+		public async Task<IActionResult> DeleteTodo([FromRoute] int id)
 		{
-			return Ok("Hello World");
+			var command = new DeleteTodoCommand(id);
+			return HandleResult(await _mediator.Send(command));
 		}
 	}
 }
