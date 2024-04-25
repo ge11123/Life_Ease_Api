@@ -1,11 +1,11 @@
-﻿using LifeManage.src.Application.Handlers;
+﻿using LifeManage.src.Application.Handlers.Todo;
 using LifeManage.src.Domain.entities;
 using LifeManage.src.Infrastructure.Extensions;
 using System.Linq.Expressions;
 
 namespace LifeManage.src.Application.Queries.Todo
 {
-	public class GetTodoListExpressions
+    public class GetTodoListExpressions
 	{
 		public Expression<Func<TodoList, bool>> Expression(GetTodoQuery query)
 		{

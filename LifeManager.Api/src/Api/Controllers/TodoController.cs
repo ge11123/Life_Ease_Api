@@ -1,4 +1,5 @@
-﻿using LifeManage.src.Application.Handlers;
+﻿using LifeManage.src.Application.Commands.Todo;
+using LifeManage.src.Application.Handlers.Todo;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,7 +16,7 @@ namespace LifeManage.src.Api.Controllers
 
 		[HttpGet]
 		[Route("{id}")]
-		public async Task<IActionResult> GetTodoById(int id)
+		public async Task<IActionResult> GetTodoById([FromRoute] int id)
 		{
 			return HandleResult(await _mediator.Send(new GetTodoByIdQuery(id)));
 		}
@@ -27,9 +28,11 @@ namespace LifeManage.src.Api.Controllers
 		}
 
 		[HttpPut]
-		public IActionResult Put()
+		[Route("{id}")]
+		public async Task<IActionResult> UpdateTodo([FromRoute] int id, [FromBody] UpdateTodoRequest req)
 		{
-			return Ok("Hello World");
+			var command = new UpdateTodoCommand(id, req.IsCompleted, req.Title, req.Description);
+			return HandleResult(await _mediator.Send(command));
 		}
 
 		[HttpDelete]

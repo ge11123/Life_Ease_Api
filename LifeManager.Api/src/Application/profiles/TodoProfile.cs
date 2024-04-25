@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using LifeManage.src.Application.Handlers.Todo;
 using LifeManage.src.Application.Queries.Todo;
 using LifeManage.src.Domain.entities;
 
@@ -10,6 +11,7 @@ namespace LifeManage.src.Application.profiles
 		{
 			CreateMap<TodoList, GetTodoResponse>().ReverseMap();
 			CreateMap<TodoList, GetTodoByIdResponse>().ReverseMap();
+			CreateMap<UpdateTodoCommand, TodoList>().ReverseMap();
 		}
 	}
 }

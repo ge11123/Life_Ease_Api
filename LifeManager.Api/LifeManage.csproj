@@ -39,7 +39,6 @@
 	<ItemGroup>
 		<Folder Include="src\Application\DTOs\" />
 		<Folder Include="src\Application\Services\Interfaces\" />
-		<Folder Include="src\Application\Commands\" />
 		<Folder Include="src\Application\Services\" />
 	</ItemGroup>
 
