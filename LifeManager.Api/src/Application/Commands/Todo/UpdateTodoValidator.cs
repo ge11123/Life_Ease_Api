@@ -4,9 +4,9 @@ using System.Data;
 
 namespace LifeManage.src.Application.Commands.Todo
 {
-	public class UpdateValidator : AbstractValidator<UpdateTodoCommand>
+	public class UpdateTodoValidator : AbstractValidator<UpdateTodoCommand>
 	{
-		public UpdateValidator()
+		public UpdateTodoValidator()
 		{
 			RuleFor(x => x.IsCompleted)
 				.NotEmpty()

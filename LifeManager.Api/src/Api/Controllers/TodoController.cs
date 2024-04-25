@@ -22,9 +22,15 @@ namespace LifeManage.src.Api.Controllers
 		}
 
 		[HttpGet]
-		public async Task<IActionResult> GetTodos([FromQuery] GetTodoQuery req)
+		public async Task<IActionResult> GetTodos([FromQuery] GetTodoQuery query)
 		{
-			return HandleResult(await _mediator.Send(req));
+			return HandleResult(await _mediator.Send(query));
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> CreateTodo([FromBody] CreateTodoCommand command)
+		{
+			return HandleResult(await _mediator.Send(command));
 		}
 
 		[HttpPut]

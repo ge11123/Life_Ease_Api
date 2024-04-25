@@ -7,7 +7,7 @@ namespace LifeManage.src.Application.Queries.Todo
 	{
 		public GetTodoCommandValidator()
 		{
-			RuleFor(x => x.Id).NotEmpty().WithMessage("ID is required");
+			//RuleFor(x => x.Id).NotEmpty().WithMessage("ID is required");
 		}
 	}
 }
