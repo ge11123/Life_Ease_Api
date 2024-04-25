@@ -10,6 +10,10 @@ namespace LifeManage.src.Application.Enums
 		[Description("Sucess")]
 		Success = 200,
 
+		[EnumStatusCode(HttpStatusCode.OK)]
+		[Description("Created Sucess")]
+		Created = 201,
+
 		[EnumStatusCode(HttpStatusCode.BadRequest)]
 		[Description("Data Validation Failed")]
 		DataValidationError = 422,
