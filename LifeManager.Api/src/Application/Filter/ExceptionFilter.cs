@@ -26,10 +26,10 @@ namespace LifeManage.src.Application.Filter
 
 		private async Task<(int, JsonResult)> BuildExceptionResult(Exception ex)
 		{
-			int statusCode = (int)SystemStatusEnum.InternalServerError;
-			string message = "An unexpected error occurred.";
 			Object data = new { };
 
+			int statusCode;
+			string message;
 			if (ex is ValidationException validationEx)
 			{
 				statusCode = (int)SystemStatusEnum.DataValidationError;
@@ -44,8 +44,15 @@ namespace LifeManage.src.Application.Filter
 			}
 			else if (ex is ModifyDataException)
 			{
-				statusCode = (int)SystemStatusEnum.ModifyError; ;
+				statusCode = (int)SystemStatusEnum.ModifyError; 
 				message = SystemStatusEnum.ModifyError.GetEnumDescription();
+				data = new { Error = ex.Message };
+			}
+			else if (ex is CreatedException)
+			{
+				statusCode = (int)SystemStatusEnum.BadRequest;
+				message = SystemStatusEnum.BadRequest.GetEnumDescription();
+				data = new { Error = ex.Message };
 			}
 			else
 			{

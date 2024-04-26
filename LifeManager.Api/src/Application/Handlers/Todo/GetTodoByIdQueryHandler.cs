@@ -1,4 +1,5 @@
-﻿using LifeManage.src.Application.Handlers.Interface;
+﻿using LifeManage.src.Application.Exceptions;
+using LifeManage.src.Application.Handlers.Interface;
 using LifeManage.src.Application.Queries.Interface;
 using LifeManage.src.Application.Queries.Todo;
 using LifeManage.src.Infrastructure.Repositories.Interfaces;
@@ -18,7 +19,8 @@ namespace LifeManage.src.Application.Handlers.Todo
 
 		public async Task<GetTodoByIdResponse> Handle(GetTodoByIdQuery query, CancellationToken cancellationToken)
 		{
-			var res = await _todoRepository.FirstOrDefaultAsync<GetTodoByIdResponse>(x => x.Id == query.Id);
+			var res = await _todoRepository.FirstOrDefaultAsync<GetTodoByIdResponse>(x => x.Id == query.Id) 
+				?? throw new NotFoundException();
 
 			return res;
 		}

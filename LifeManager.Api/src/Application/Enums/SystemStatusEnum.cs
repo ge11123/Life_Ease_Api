@@ -19,16 +19,20 @@ namespace LifeManage.src.Application.Enums
 		ModifySuccess = 204,
 
 		[EnumStatusCode(HttpStatusCode.BadRequest)]
+		[Description("BadRequest")]
+		BadRequest = 400,
+
+		[EnumStatusCode(HttpStatusCode.NotFound)]
+		[Description("NotFound")]
+		NotFound = 404,
+
+		[EnumStatusCode(HttpStatusCode.BadRequest)]
 		[Description("Data Validation Failed")]
 		DataValidationError = 422,
 
 		[EnumStatusCode(HttpStatusCode.NotFound)]
 		[Description("ModifyError")]
 		ModifyError = 460,
-
-		[EnumStatusCode(HttpStatusCode.NotFound)]
-		[Description("NotFound")]
-		NotFound = 404,
 
 		[EnumStatusCode(HttpStatusCode.InternalServerError)]
 		[Description("Internal Server is Error")]
