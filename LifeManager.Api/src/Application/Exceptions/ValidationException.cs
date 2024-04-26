@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace LifeManage.src.Application.Behavior
+namespace LifeManage.src.Application.Exceptions
 {
 	public class ValidationException : Exception
 	{
@@ -8,24 +8,24 @@ namespace LifeManage.src.Application.Behavior
 
 		public ValidationException() : base("One or more validation failures have occurred.")
 		{
-			this.Errors = new Dictionary<string, string[]>();
+			Errors = new Dictionary<string, string[]>();
 		}
 
 		public ValidationException(IDictionary<string, string[]> errors)
 			: base("One or more validation failures have occurred.")
 		{
-			this.Errors = errors;
+			Errors = errors;
 		}
 
 		public ValidationException(string message) : base(message)
 		{
 			try
 			{
-				this.Errors = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(message);
+				Errors = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(message);
 			}
 			catch
 			{
-				this.Errors = new Dictionary<string, string[]>();
+				Errors = new Dictionary<string, string[]>();
 			}
 		}
 
@@ -34,7 +34,7 @@ namespace LifeManage.src.Application.Behavior
 			return JsonConvert.SerializeObject(new
 			{
 				Message = "Validation failed",
-				Errors = this.Errors
+				Errors
 			});
 		}
 	}

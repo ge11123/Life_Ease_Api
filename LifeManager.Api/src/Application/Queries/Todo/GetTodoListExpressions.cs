@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace LifeManage.src.Application.Queries.Todo
 {
-    public class GetTodoListExpressions
+	public class GetTodoListExpressions
 	{
 		public Expression<Func<TodoList, bool>> Expression(GetTodoQuery query)
 		{

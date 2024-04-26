@@ -2,7 +2,6 @@
 using LifeManage.src.Application.Handlers.Todo;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace LifeManage.src.Api.Controllers
 {
@@ -31,7 +30,7 @@ namespace LifeManage.src.Api.Controllers
 		[HttpPost]
 		public async Task<IActionResult> CreateTodo([FromBody] CreateTodoCommand command)
 		{
-			return HandleResult(await _mediator.Send(command));
+			return HandleCreationResult(await _mediator.Send(command));
 		}
 
 		[HttpPut]
@@ -39,7 +38,7 @@ namespace LifeManage.src.Api.Controllers
 		public async Task<IActionResult> UpdateTodo([FromRoute] int id, [FromBody] UpdateTodoRequest req)
 		{
 			var command = new UpdateTodoCommand(id, req.IsCompleted, req.Title, req.Description);
-			return HandleResult(await _mediator.Send(command));
+			return HandleModifyResult(await _mediator.Send(command));
 		}
 
 		[HttpDelete]
@@ -47,7 +46,7 @@ namespace LifeManage.src.Api.Controllers
 		public async Task<IActionResult> DeleteTodo([FromRoute] int id)
 		{
 			var command = new DeleteTodoCommand(id);
-			return HandleResult(await _mediator.Send(command));
+			return HandleModifyResult(await _mediator.Send(command));
 		}
 	}
 }

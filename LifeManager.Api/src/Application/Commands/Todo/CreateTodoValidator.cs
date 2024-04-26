@@ -5,11 +5,11 @@ namespace LifeManage.src.Application.Commands.Todo
 {
 	public class CreateTodoValidator : AbstractValidator<CreateTodoCommand>
 	{
-        public CreateTodoValidator()
-        {
-            RuleFor(x => x.Title)
+		public CreateTodoValidator()
+		{
+			RuleFor(x => x.Title)
 				.NotEmpty()
 				.WithMessage("Title is required");
-        }
-    }
+		}
+	}
 }

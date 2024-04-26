@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
 using LifeManage.src.Application.Handlers.Todo;
-using System.Data;
 
 namespace LifeManage.src.Application.Commands.Todo
 {

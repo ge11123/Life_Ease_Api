@@ -1,5 +1,5 @@
-﻿using LifeManage.src.Application.Behavior;
-using LifeManage.src.Application.Enums;
+﻿using LifeManage.src.Application.Enums;
+using LifeManage.src.Application.Exceptions;
 using LifeManage.src.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -36,6 +36,16 @@ namespace LifeManage.src.Application.Filter
 				message = SystemStatusEnum.DataValidationError.GetEnumDescription();
 				var errors = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(validationEx.Message);
 				data = new { Errors = errors };
+			}
+			else if (ex is NotFoundException)
+			{
+				statusCode = (int)SystemStatusEnum.NotFound; ;
+				message = SystemStatusEnum.NotFound.GetEnumDescription();
+			}
+			else if (ex is ModifyDataException)
+			{
+				statusCode = (int)SystemStatusEnum.ModifyError; ;
+				message = SystemStatusEnum.ModifyError.GetEnumDescription();
 			}
 			else
 			{

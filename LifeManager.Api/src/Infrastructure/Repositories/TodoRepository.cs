@@ -2,7 +2,6 @@
 using LifeManage.src.Domain;
 using LifeManage.src.Domain.entities;
 using LifeManage.src.Infrastructure.Repositories.Interfaces;
-using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
 namespace LifeManage.src.Infrastructure.Repositories

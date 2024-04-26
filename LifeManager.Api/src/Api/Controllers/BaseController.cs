@@ -2,7 +2,6 @@
 using LifeManage.src.Infrastructure.BaseModels;
 using LifeManage.src.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.OpenApi.Extensions;
 
 namespace LifeManage.src.Api.Controllers
 {
@@ -21,8 +20,19 @@ namespace LifeManage.src.Api.Controllers
 		{
 			var result = new BaseResponse<T>(data)
 			{
-				Status = SystemStatusEnum.Created.GetEnumDescription(),
-				Code = (int)SystemStatusEnum.Created
+				Status = SystemStatusEnum.CreatedSuccess.GetEnumDescription(),
+				Code = (int)SystemStatusEnum.CreatedSuccess
+			};
+
+			return Ok(result);
+		}
+
+		protected IActionResult HandleModifyResult<T>(T data)
+		{
+			var result = new BaseResponse<T>(data)
+			{
+				Status = SystemStatusEnum.ModifySuccess.GetEnumDescription(),
+				Code = (int)SystemStatusEnum.ModifySuccess
 			};
 
 			return Ok(result);

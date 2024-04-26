@@ -10,13 +10,25 @@ namespace LifeManage.src.Application.Enums
 		[Description("Sucess")]
 		Success = 200,
 
-		[EnumStatusCode(HttpStatusCode.OK)]
+		[EnumStatusCode(HttpStatusCode.Created)]
 		[Description("Created Sucess")]
-		Created = 201,
+		CreatedSuccess = 201,
+
+		[EnumStatusCode(HttpStatusCode.NoContent)]
+		[Description("Modify Sucess")]
+		ModifySuccess = 204,
 
 		[EnumStatusCode(HttpStatusCode.BadRequest)]
 		[Description("Data Validation Failed")]
 		DataValidationError = 422,
+
+		[EnumStatusCode(HttpStatusCode.NotFound)]
+		[Description("ModifyError")]
+		ModifyError = 460,
+
+		[EnumStatusCode(HttpStatusCode.NotFound)]
+		[Description("NotFound")]
+		NotFound = 404,
 
 		[EnumStatusCode(HttpStatusCode.InternalServerError)]
 		[Description("Internal Server is Error")]
