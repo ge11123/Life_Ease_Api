@@ -9,6 +9,15 @@ builder.Services.AddControllers(c =>
 	c.Filters.Add(typeof(ExceptionFilter));
 });
 
+builder.Services.AddCors(option =>
+	option.AddDefaultPolicy(policy =>
+	{
+		policy.AllowAnyOrigin()
+			  .AllowAnyMethod()
+			  .AllowAnyHeader();
+	})
+);
+
 // Add services to the container.
 builder.Services.AddApplicationServices();
 builder.Services.AddRepository(builder.Configuration);
@@ -28,6 +37,8 @@ app.UseSwagger();
 app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
+
+app.UseCors();
 
 app.UseAuthorization();
 
