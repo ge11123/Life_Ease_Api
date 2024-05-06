@@ -30,6 +30,11 @@ namespace LifeManage.src.Application.Queries.Todo
 				expression = expression.And(x => x.DueDate == query.DueTime);
 			}
 
+			if (!string.IsNullOrWhiteSpace(query.Title))
+			{
+				expression = expression.And(x => x.Title.Contains(query.Title));
+			}
+
 			return expression;
 		}
 	}
