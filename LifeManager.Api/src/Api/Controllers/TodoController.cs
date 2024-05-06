@@ -15,10 +15,10 @@ namespace LifeManage.src.Api.Controllers
 		}
 
 		[HttpGet]
-		[Route("{title}")]
-		public async Task<IActionResult> GetTodoByTitle([FromRoute] string title)
+		[Route("{id}")]
+		public async Task<IActionResult> GetTodoById([FromRoute] int id)
 		{
-			return HandleResult(await _mediator.Send(new GetTodoByTitleQuery(title)));
+			return HandleResult(await _mediator.Send(new GetTodoByIdQuery(id)));
 		}
 
 		[HttpGet]

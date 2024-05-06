@@ -13,7 +13,7 @@ namespace LifeManage.src.Application.profiles
 
 			CreateMap<TodoList, GetTodoResponse>().ReverseMap();
 
-			CreateMap<TodoList, GetTodoByTitleResponse>().ReverseMap();
+			CreateMap<TodoList, GetTodoByIdResponse>().ReverseMap();
 
 			CreateMap<UpdateTodoCommand, TodoList>().ReverseMap();
 
