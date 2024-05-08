@@ -1,8 +1,16 @@
 using LifeManage.src.Application.Filter;
 using LifeManage.src.Application.StartUp;
+using Serilog;
+using Serilog.Events;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile();
+
+Log.Logger = new LoggerConfiguration()
+	.ReadFrom.Configuration(builder.Configuration)
+	.CreateLogger();
+
+builder.Host.UseSerilog();
 
 builder.Services.AddControllers(c =>
 {
@@ -28,6 +36,18 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+
+app.UseSerilogRequestLogging(options =>
+{
+	options.MessageTemplate = "Handled {RequestPath}";
+	options.EnrichDiagnosticContext = (diagnosticContext, httpContext) =>
+	{
+		diagnosticContext.Set("RequestHost", httpContext.Request.Host.Value);
+		diagnosticContext.Set("RequestScheme", httpContext.Request.Scheme);
+		diagnosticContext.Set("UserID", httpContext.User.Identity?.Name);
+	};
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
