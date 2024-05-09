@@ -1,7 +1,6 @@
 using LifeManage.src.Application.Filter;
 using LifeManage.src.Application.StartUp;
 using Serilog;
-using Serilog.Events;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile();
@@ -28,6 +27,7 @@ builder.Services.AddCors(option =>
 
 // Add services to the container.
 builder.Services.AddApplicationServices();
+builder.Services.AddServices();
 builder.Services.AddRepository(builder.Configuration);
 builder.Services.AddAuth();
 

@@ -44,7 +44,7 @@ namespace LifeManage.src.Application.Filter
 			}
 			else if (ex is ModifyDataException)
 			{
-				statusCode = (int)SystemStatusEnum.ModifyError; 
+				statusCode = (int)SystemStatusEnum.ModifyError;
 				message = SystemStatusEnum.ModifyError.GetEnumDescription();
 				data = new { Error = ex.Message };
 			}
