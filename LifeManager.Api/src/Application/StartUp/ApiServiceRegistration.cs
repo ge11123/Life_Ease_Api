@@ -22,6 +22,8 @@ namespace LifeManage.src.Application.StartUp
 				options.LowercaseUrls = true;
 			});
 
+			services.AddMemoryCache();
+
 			return services;
 		}
 
