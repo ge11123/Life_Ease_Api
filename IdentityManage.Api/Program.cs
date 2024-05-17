@@ -1,6 +1,11 @@
+using IdentityManage.src.Application.Configure;
+using IdentityManage.src.Domain;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container
+ConfigureRegistration.ConfigureServices(builder.Services, builder.Configuration);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -18,6 +23,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseIdentityServer();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

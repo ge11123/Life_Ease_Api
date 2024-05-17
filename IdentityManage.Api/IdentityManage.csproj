@@ -9,17 +9,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Duende.IdentityServer" Version="7.0.4" />
+    <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="7.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.5">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.5" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.6" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="src\IdentityManage.Application\Commands\" />
-    <Folder Include="src\IdentityManage.Application\Validtor\" />
-    <Folder Include="src\IdentityManage.Application\Services\" />
-    <Folder Include="src\IdentityManage.Application\Queries\" />
-    <Folder Include="src\IdentityManage.Domain\Entities\" />
-    <Folder Include="src\IdentityManage.Infrastructure\" />
+    <Folder Include="src\Application\Commands\" />
+    <Folder Include="src\Application\Validtor\" />
+    <Folder Include="src\Application\Services\" />
+    <Folder Include="src\Application\Queries\" />
+    <Folder Include="src\Infrastructure\" />
   </ItemGroup>
 
 </Project>
