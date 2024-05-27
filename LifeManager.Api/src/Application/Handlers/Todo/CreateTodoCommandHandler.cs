@@ -8,7 +8,7 @@ using MediatR;
 
 namespace LifeManage.src.Application.Handlers.Todo
 {
-	public record CreateTodoCommand(bool? IsCompleted, string Title, string? Description, DateTime? DueTime) : ICommand<Unit>;
+	public record CreateTodoCommand(bool? IsCompleted, string Title, string? Description, DateTime? DueDate) : ICommand<Unit>;
 
 	public class CreateTodoCommandHandler : ICommandHandler<CreateTodoCommand, Unit>
 	{
