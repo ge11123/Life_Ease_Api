@@ -7,3 +7,15 @@
 LifeManager.Api/bin/
 LifeManager.Api/obj/
 LifeManager.Api/logs/
+
+IdentityManage.Api/bin/
+IdentityManage.Api/obj/
+IdentityManage.Api/logs/
+
+EstateManage.Api/bin/
+EstateManage.Api/obj/
+EstateManage.Api/logs/
+
+StockTrackManage.Api/bin/
+StockTrackManage.Api/obj/
+StockTrackManage.Api/logs/
