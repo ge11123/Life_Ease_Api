@@ -1,5 +1,6 @@
 ﻿using IdentityManage.src.Domain;
 using IdentityManage.src.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,8 +26,8 @@ namespace IdentityManage.src.Api.Controllers
 			{
 				UserName = model.Username,
 				Email = model.Email,
-				FirstName = model.FirstName, // 确保包含 FirstName
-				LastName = model.LastName // 确保包含 LastName
+				FirstName = model.FirstName,
+				LastName = model.LastName 
 			};
 			var result = await _userManager.CreateAsync(user, model.Password);
 			if (result.Succeeded)
@@ -46,20 +47,27 @@ namespace IdentityManage.src.Api.Controllers
 			}
 			return Unauthorized();
 		}
+
+		[Authorize]
+		[HttpGet("hello")]
+		public IActionResult Hello()
+		{
+			return Ok(new { Message = "Hello from IdentityManage" });
+		}
 	}
 	public class RegisterModel
 	{
-		public string Username { get; set; }
-		public string Email { get; set; }
-		public string Password { get; set; }
-		public string FirstName { get; set; } // 添加 FirstName 字段
-		public string LastName { get; set; } // 添加 LastName 字段
+		public string Username { get; set; } = null!;
+		public string Email { get; set; } = null!;
+		public string Password { get; set; } = null!;
+		public string FirstName { get; set; } = null!;
+		public string LastName { get; set; } = null!;
 	}
 
 	public class LoginModel
 	{
-		public string Username { get; set; }
-		public string Password { get; set; }
+		public string Username { get; set; } = null!;
+		public string Password { get; set; } = null!;
 	}
 }
 
