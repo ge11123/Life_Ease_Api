@@ -16,6 +16,7 @@ namespace LifeManage.src.Application.StartUp
 
 			services.AddScoped<ITodoRepository, TodoRepository>();
 			services.AddScoped<ISidebarMenuRepository, SidebarMenuRepository>();
+			services.AddScoped<IMonthlyTasksRepository, MonthlyTasksRepository>();
 
 			return services;
 		}
