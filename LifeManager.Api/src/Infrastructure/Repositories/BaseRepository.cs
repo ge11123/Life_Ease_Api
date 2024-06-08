@@ -18,20 +18,17 @@ namespace LifeManage.src.Infrastructure.Repositories
 		#region ctor
 		public BaseRepository(DbContext context)
 		{
-			if (context == null)
-			{
-				throw new ArgumentNullException("context fail");
-			}
-		}
-		public BaseRepository(DbContext context, IMapper mapper)
-		{
-			_context = context;
+            _context = context ?? throw new ArgumentNullException(nameof(context), "context fail");
+
+        }
+
+        public BaseRepository(DbContext context, IMapper mapper) : this(context)
+        {
 			_mapper = mapper;
 		}
-		public BaseRepository(DbContext context, IMapper mapper, ClaimsPrincipal clams)
-		{
-			_context = context;
-			_mapper = mapper;
+
+		public BaseRepository(DbContext context, IMapper mapper, ClaimsPrincipal clams) : this(context, mapper)
+        {
 			_clams = clams;
 		}
 		#endregion
@@ -64,15 +61,12 @@ namespace LifeManage.src.Infrastructure.Repositories
 		}
 		protected virtual void Dispose(bool disposing)
 		{
-			if (disposing)
-			{
-				if (this._context != null)
-				{
-					this._context.Dispose();
-					this._context = null;
-				}
-			}
-		}
+            if (disposing)
+            {
+                _context?.Dispose();
+                _context = null;
+            }
+        }
 		#endregion
 
 		#region Query
