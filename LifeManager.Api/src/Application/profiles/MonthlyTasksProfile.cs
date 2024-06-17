@@ -8,7 +8,8 @@ namespace LifeManage.src.Application.profiles
 	{
 		public MonthlyTasksProfile()
 		{
-			CreateMap<TodoList, GetMonthlyTasksResponse>();
+			CreateMap<TodoList, GetMonthlyTasksResponse>()
+				.ForMember(dest => dest.DueDate, opt => opt.MapFrom(src => src.DueDate.ToString("yyyy-MM-dd")));
 		}
 	}
 }
