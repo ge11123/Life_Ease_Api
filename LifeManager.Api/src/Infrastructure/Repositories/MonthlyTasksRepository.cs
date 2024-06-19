@@ -4,6 +4,7 @@ using LifeManage.src.Domain;
 using LifeManage.src.Domain.entities;
 using LifeManage.src.Infrastructure.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 using System.Security.Claims;
 
 namespace LifeManage.src.Infrastructure.Repositories
@@ -19,11 +20,10 @@ namespace LifeManage.src.Infrastructure.Repositories
 			_mapper = mapper;
 		}
 
-		public async Task<List<GetMonthlyTasksResponse>> QueryMonthlyTasksAsync(DateTime startTime, DateTime dateTime)
+		public async Task<List<GetMonthlyTasksResponse>> QueryMonthlyTasksAsync(Expression<Func<TodoList, bool>> predicate)
 		{
 			var query = _context.TodoList
-							 .Where(todo => todo.DueDate >= startTime &&
-											todo.DueDate < dateTime)
+							 .Where(predicate)
 							 .OrderBy(todo => todo.DueDate);
 
 			return await _mapper.ProjectTo<GetMonthlyTasksResponse>(query).ToListAsync();
