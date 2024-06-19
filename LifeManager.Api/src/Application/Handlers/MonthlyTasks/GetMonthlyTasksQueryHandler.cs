@@ -21,9 +21,7 @@ namespace LifeManage.src.Application.Handlers.MonthlyTasks
         public async Task<List<GetMonthlyTasksResponse>> Handle(GetMonthlyTasksQuery query, CancellationToken cancellationToken)
         {
             var predicate = GenerateMonthlyTaskFilter(query);
-            var res =  await _repository.QueryAsync<GetMonthlyTasksResponse>(predicate);
-          
-            return res;
+            return await _repository.QueryMonthlyTasksAsync(predicate);
         }
 
         private static Expression<Func<TodoList, bool>> GenerateMonthlyTaskFilter(GetMonthlyTasksQuery query)
