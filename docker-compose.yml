@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   frontend:
-    image: life_ease:v1
+    image: life_ease:prod
     container_name: life_ease_web
     ports:
       - "4000:3000" # 根據需要配置端口
@@ -13,7 +13,7 @@ services:
     # other configurations like volumes, environment variables, etc.
 
   backend:
-    image: life_ease_api:monthly_tasks
+    image: life_ease_api:prod
     container_name: life_ease_api
     ports:
       - "8013:8080" # 根據需要配置端口
