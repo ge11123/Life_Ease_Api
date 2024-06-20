@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: life_ease:v1
+    container_name: life_ease_web
+    ports:
+      - "3000:3000" # 根據需要配置端口
+    depends_on:
+      - backend
+    networks:
+      - life_ease_network
+    # other configurations like volumes, environment variables, etc.
+
+  backend:
+    image: life_ease_api:monthly_tasks
+    container_name: life_ease_api
+    ports:
+      - "8013:8080" # 根據需要配置端口
+    depends_on:
+      - db
+    networks:
+      - life_ease_network
+    # other configurations like volumes, environment variables, etc.
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: life_ease
+    ports:
+      - "1444:1433" # 根據需要配置端口
+    environment:
+      SA_PASSWORD: "P@55word"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - life_ease:/var/opt/mssql
+    networks:
+      - life_ease_network
+
+volumes:
+  life_ease:
+    external: true
+    # other configurations like volumes, environment variables, etc.
+
+networks:
+  life_ease_network:
+    driver: bridge
