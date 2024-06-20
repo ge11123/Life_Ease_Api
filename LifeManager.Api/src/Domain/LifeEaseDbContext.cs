@@ -11,6 +11,15 @@ namespace LifeManage.src.Domain
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 		}
-	}
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // 配置表名稱
+            modelBuilder.Entity<TodoList>().ToTable("TODO_LIST");
+            modelBuilder.Entity<SidebarMenu>().ToTable("SIDEBAR_MENU");
+        }
+    }
 
 }
