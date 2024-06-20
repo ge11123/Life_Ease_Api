@@ -5,7 +5,7 @@ services:
     image: life_ease:v1
     container_name: life_ease_web
     ports:
-      - "3000:3000" # 根據需要配置端口
+      - "4000:3000" # 根據需要配置端口
     depends_on:
       - backend
     networks:
