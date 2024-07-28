@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using LifeManage.src.Domain;
-using LifeManage.src.Domain.entities;
+using LifeManage.src.Domain.Entities;
 using LifeManage.src.Infrastructure.Repositories.Interfaces;
 using System.Security.Claims;
 

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using LifeManage.src.Application.Handlers.Todo;
 using LifeManage.src.Application.Queries.Todo;
-using LifeManage.src.Domain.entities;
+using LifeManage.src.Domain.Entities;
 
 namespace LifeManage.src.Application.profiles
 {

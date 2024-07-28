@@ -1,5 +1,5 @@
 ﻿using LifeManage.src.Application.Queries.MonthlyTasks;
-using LifeManage.src.Domain.entities;
+using LifeManage.src.Domain.Entities;
 using System.Linq.Expressions;
 
 namespace LifeManage.src.Infrastructure.Repositories.Interfaces

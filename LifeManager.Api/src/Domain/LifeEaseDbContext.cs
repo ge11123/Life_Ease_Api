@@ -1,4 +1,4 @@
-﻿using LifeManage.src.Domain.entities;
+﻿using LifeManage.src.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace LifeManage.src.Domain

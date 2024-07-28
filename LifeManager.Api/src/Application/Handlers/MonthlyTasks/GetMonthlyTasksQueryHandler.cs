@@ -1,7 +1,7 @@
 ﻿using LifeManage.src.Application.Handlers.Interface;
 using LifeManage.src.Application.Queries.Interface;
 using LifeManage.src.Application.Queries.MonthlyTasks;
-using LifeManage.src.Domain.entities;
+using LifeManage.src.Domain.Entities;
 using LifeManage.src.Infrastructure.Repositories.Interfaces;
 using System.Linq.Expressions;
 
