@@ -9,7 +9,7 @@ namespace LifeManage.src.Domain
 		public DbSet<SidebarMenu> SidebarMenu { get; set; }
 
 		public DbSet<Region> Region { get; set; }
-		public DbSet<Restaurant> Restaurant { get; set; }
+		public DbSet<Restaurants> Restaurant { get; set; }
 		public DbSet<RestaurantCategory> RestaurantCategory { get; set; }
 		public DbSet<RestaurantVisit> RestaurantVisit { get; set; }
 		public DbSet<FoodCategory> FoodCategory { get; set; }
@@ -28,7 +28,7 @@ namespace LifeManage.src.Domain
             modelBuilder.Entity<SidebarMenu>().ToTable("SIDEBAR_MENU");
 
             modelBuilder.Entity<Region>().ToTable("REGION");
-            modelBuilder.Entity<Restaurant>().ToTable("RESTAURANT");
+            modelBuilder.Entity<Restaurants>().ToTable("RESTAURANT");
             modelBuilder.Entity<RestaurantCategory>().ToTable("RESTAURANT_CATEGORY");
             modelBuilder.Entity<RestaurantVisit>().ToTable("RESTAURANT_VISIT");
             modelBuilder.Entity<FoodCategory>().ToTable("FOOD_CATEGORY");

@@ -1,6 +1,6 @@
 ﻿namespace LifeManage.src.Domain.Entities
 {
-	public class Restaurant
+	public class Restaurants
 	{
 		public int RestaurantId { get; set; }
 		public string Name { get; set; } = null!;
