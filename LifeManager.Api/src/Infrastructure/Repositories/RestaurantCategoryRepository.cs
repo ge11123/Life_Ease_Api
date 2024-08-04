@@ -6,7 +6,7 @@ using System.Security.Claims;
 
 namespace LifeManage.src.Infrastructure.Repositories
 {
-	public class RestaurantCategoryRepository : LifeManageRepository<RestaurantCategory>, IRestaurantCategoryRepository
+	public class RestaurantCategoryRepository : LifeManageRepository<StoreCategoryLink>, IRestaurantCategoryRepository
 	{
 		private readonly LifeEaseDbContext _context;
 		public RestaurantCategoryRepository(LifeEaseDbContext context, IMapper mapper, ClaimsPrincipal clams) : base(context, mapper, clams)

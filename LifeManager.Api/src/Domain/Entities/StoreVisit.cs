@@ -1,6 +1,6 @@
 ﻿namespace LifeManage.src.Domain.Entities
 {
-    public class RestaurantVisit
+    public class StoreVisit
     {
 		public int Id { get; set; }
 		public int RestaurantId { get; set; }

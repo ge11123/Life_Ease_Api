@@ -8,12 +8,17 @@ namespace LifeManage.src.Domain
 		public DbSet<TodoList> TodoList { get; set; }
 		public DbSet<SidebarMenu> SidebarMenu { get; set; }
 
-		public DbSet<Region> Region { get; set; }
-		public DbSet<Restaurants> Restaurant { get; set; }
-		public DbSet<RestaurantCategory> RestaurantCategory { get; set; }
-		public DbSet<RestaurantVisit> RestaurantVisit { get; set; }
 		public DbSet<FoodCategory> FoodCategory { get; set; }
 		public DbSet<FoodItem> FoodItem { get; set; }
+		
+		public DbSet<LedgerCategory> LedgerCategory { get; set; }
+		public DbSet<LedgerTransaction> LedgerTransaction { get; set; }
+		public DbSet<LedgerUser> LedgerUser { get; set; }
+
+		public DbSet<Region> Region { get; set; }
+		public DbSet<Store> Restaurant { get; set; }
+		public DbSet<StoreCategoryLink> RestaurantCategory { get; set; }
+		public DbSet<StoreVisit> RestaurantVisit { get; set; }
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
@@ -27,12 +32,19 @@ namespace LifeManage.src.Domain
             modelBuilder.Entity<TodoList>().ToTable("TODO_LIST");
             modelBuilder.Entity<SidebarMenu>().ToTable("SIDEBAR_MENU");
 
-            modelBuilder.Entity<Region>().ToTable("REGION");
-            modelBuilder.Entity<Restaurants>().ToTable("RESTAURANT");
-            modelBuilder.Entity<RestaurantCategory>().ToTable("RESTAURANT_CATEGORY");
-            modelBuilder.Entity<RestaurantVisit>().ToTable("RESTAURANT_VISIT");
             modelBuilder.Entity<FoodCategory>().ToTable("FOOD_CATEGORY");
             modelBuilder.Entity<FoodItem>().ToTable("FOOD_ITEM");
+            
+			modelBuilder.Entity<LedgerCategory>().ToTable("LEDGER_CATEGORIES");
+			modelBuilder.Entity<LedgerTransaction>().ToTable("LEDGER_TRANSACTIONS");
+			modelBuilder.Entity<LedgerUser>().ToTable("LEDGER_USERS");
+
+			modelBuilder.Entity<Region>().ToTable("REGION");
+
+            modelBuilder.Entity<StoreCategoryLink>().ToTable("STORE_CATEGORY_LINKS");
+            modelBuilder.Entity<Store>().ToTable("STORES");
+            modelBuilder.Entity<StoreVisit>().ToTable("STORE_VISITS");
+
 		}
     }
 

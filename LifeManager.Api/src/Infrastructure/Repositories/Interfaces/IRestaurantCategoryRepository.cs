@@ -2,7 +2,7 @@
 
 namespace LifeManage.src.Infrastructure.Repositories.Interfaces
 {
-	public interface IRestaurantCategoryRepository : IGenericRepository<RestaurantCategory>
+	public interface IRestaurantCategoryRepository : IGenericRepository<StoreCategoryLink>
 	{
 	}
 }
