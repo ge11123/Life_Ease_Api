@@ -2,8 +2,8 @@
 {
     public class StoreVisit
     {
-		public int Id { get; set; }
-		public int RestaurantId { get; set; }
+		public int StoreVisitId { get; set; }
+		public int StoreId { get; set; }
 		public DateTime DateVisited { get; set; }
 		public int UserId { get; set; }
 	}

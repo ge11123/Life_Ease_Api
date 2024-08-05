@@ -16,9 +16,9 @@ namespace LifeManage.src.Domain
 		public DbSet<LedgerUser> LedgerUser { get; set; }
 
 		public DbSet<Region> Region { get; set; }
-		public DbSet<Store> Restaurant { get; set; }
-		public DbSet<StoreCategoryLink> RestaurantCategory { get; set; }
-		public DbSet<StoreVisit> RestaurantVisit { get; set; }
+		public DbSet<Store> Store { get; set; }
+		public DbSet<StoreCategoryLink> StoreCategoryLink { get; set; }
+		public DbSet<StoreVisit> StoreVisit { get; set; }
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
@@ -29,21 +29,55 @@ namespace LifeManage.src.Domain
             base.OnModelCreating(modelBuilder);
 
             // 配置表名稱
-            modelBuilder.Entity<TodoList>().ToTable("TODO_LIST");
-            modelBuilder.Entity<SidebarMenu>().ToTable("SIDEBAR_MENU");
+			// 代辦事項
+            modelBuilder.Entity<TodoList>()
+				.ToTable("TODO_LIST")
+				.HasKey(x => x.Id);
 
-            modelBuilder.Entity<FoodCategory>().ToTable("FOOD_CATEGORY");
-            modelBuilder.Entity<FoodItem>().ToTable("FOOD_ITEM");
+			// SideBar
+            modelBuilder.Entity<SidebarMenu>()
+				.ToTable("SIDEBAR_MENU")
+				.HasKey(x => x.Id);
+
+			// 食品
+            modelBuilder.Entity<FoodCategory>()
+				.ToTable("FOOD_CATEGORY")
+				.HasNoKey();
+
+            modelBuilder.Entity<FoodItem>()
+				.ToTable("FOOD_ITEM")
+				.HasKey(x => x.FoodItemId);
             
-			modelBuilder.Entity<LedgerCategory>().ToTable("LEDGER_CATEGORIES");
-			modelBuilder.Entity<LedgerTransaction>().ToTable("LEDGER_TRANSACTIONS");
-			modelBuilder.Entity<LedgerUser>().ToTable("LEDGER_USERS");
+			// 記帳
+			modelBuilder.Entity<LedgerCategory>()
+				.ToTable("LEDGER_CATEGORIES")
+				.HasNoKey();
 
-			modelBuilder.Entity<Region>().ToTable("REGION");
+			modelBuilder.Entity<LedgerTransaction>()
+				.ToTable("LEDGER_TRANSACTIONS")
+				.HasKey(x => x.TransactionId);
 
-            modelBuilder.Entity<StoreCategoryLink>().ToTable("STORE_CATEGORY_LINKS");
-            modelBuilder.Entity<Store>().ToTable("STORES");
-            modelBuilder.Entity<StoreVisit>().ToTable("STORE_VISITS");
+			modelBuilder.Entity<LedgerUser>()
+				.ToTable("LEDGER_USERS")
+				.HasKey(x => x.UserId);
+
+			// 地區
+			modelBuilder.Entity<Region>()
+				.ToTable("REGION")
+				.HasKey(x => x.RegionId);
+
+			// 商店
+            modelBuilder.Entity<StoreCategoryLink>()
+				.ToTable("STORE_CATEGORY_LINKS")
+				.HasNoKey();
+
+			modelBuilder.Entity<Store>()
+				.ToTable("STORES")
+				.HasKey(x => x.StoreId);
+
+            modelBuilder.Entity<StoreVisit>()
+				.ToTable("STORE_VISITS")
+				.HasKey(x => x.StoreVisitId);
 
 		}
     }

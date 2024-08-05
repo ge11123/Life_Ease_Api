@@ -2,7 +2,7 @@
 {
 	public class StoreCategoryLink
 	{
-		public int RestaurantId { get; set; }
-		public int CategoryId { get; set; }
+		public int StoreId { get; set; }
+		public int LedgerCategoryId { get; set; }
 	}
 }
