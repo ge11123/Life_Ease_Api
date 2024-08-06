@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using LifeManage.src.Application.Queries.MonthlyTasks;
-using LifeManage.src.Domain.entities;
+using LifeManage.src.Domain.Entities;
 
 namespace LifeManage.src.Application.profiles
 {

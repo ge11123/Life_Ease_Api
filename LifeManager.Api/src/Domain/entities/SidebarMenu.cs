@@ -1,4 +1,4 @@
-﻿namespace LifeManage.src.Domain.entities
+﻿namespace LifeManage.src.Domain.Entities
 {
 	public class SidebarMenu
 	{

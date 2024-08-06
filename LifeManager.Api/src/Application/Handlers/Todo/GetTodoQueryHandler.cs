@@ -1,7 +1,7 @@
 ﻿using LifeManage.src.Application.Handlers.Interface;
 using LifeManage.src.Application.Queries.Interface;
 using LifeManage.src.Application.Queries.Todo;
-using LifeManage.src.Domain.entities;
+using LifeManage.src.Domain.Entities;
 using LifeManage.src.Infrastructure.BaseModels;
 using LifeManage.src.Infrastructure.Repositories.Interfaces;
 using LifeManage.src.Infrastructure.Extensions;

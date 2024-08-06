@@ -2,7 +2,7 @@
 using LifeManage.src.Application.Commands.Interface;
 using LifeManage.src.Application.Exceptions;
 using LifeManage.src.Application.Handlers.Interface;
-using LifeManage.src.Domain.entities;
+using LifeManage.src.Domain.Entities;
 using LifeManage.src.Infrastructure.Repositories.Interfaces;
 using MediatR;
 

@@ -2,8 +2,7 @@
 
 namespace LifeManage.src.Infrastructure.Repositories.Interfaces
 {
-	public interface ITodoRepository : IGenericRepository<TodoList>
+	public interface IRestaurantCategoryRepository : IGenericRepository<StoreCategoryLink>
 	{
-		Task UpdateTodoAsync(TodoList todoList);
 	}
 }
