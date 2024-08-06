@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using LifeManage.src.Application.Exceptions;
 using LifeManage.src.Application.Handlers.Ledger;
 using LifeManage.src.Domain;
 using LifeManage.src.Domain.Entities;
@@ -46,7 +47,7 @@ namespace LifeManage.src.Infrastructure.Repositories
 			catch (Exception e)
 			{
 				await dbTransaction.RollbackAsync();
-				throw new Exception(e.Message);
+				throw new CreatedException(e.Message);
 			}
 		}
 
