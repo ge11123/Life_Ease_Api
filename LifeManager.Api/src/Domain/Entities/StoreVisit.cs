@@ -4,7 +4,7 @@
     {
 		public int StoreVisitId { get; set; }
 		public int StoreId { get; set; }
-		public DateTime DateVisited { get; set; }
+		public DateTime VisitedDate { get; set; }
 		public int UserId { get; set; }
 	}
 }

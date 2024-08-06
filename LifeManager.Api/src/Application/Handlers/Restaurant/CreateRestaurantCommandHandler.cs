@@ -38,14 +38,14 @@ namespace LifeManage.src.Application.Handlers.Restaurant
 
 		public async Task<Unit> Handle(CreateRestaurantCommand command, CancellationToken cancellationToken)
 		{
-			var restaurant = _mapper.Map<Restaurants>(command);
-			var restaurantCategory = _mapper.Map<RestaurantCategory>(command);
+			var restaurant = _mapper.Map<Store>(command);
+			var restaurantCategory = _mapper.Map<StoreCategoryLink>(command);
 
 			// 新增餐廳名單
-			await _context.Restaurant.AddAsync(restaurant);
+			await _context.Store.AddAsync(restaurant);
 
 			// 新增餐廳有的食物分類
-			await _context.RestaurantCategory.AddAsync(restaurantCategory);
+			await _context.StoreCategoryLink.AddAsync(restaurantCategory);
 
 
 			await _context.SaveChangesAsync();
