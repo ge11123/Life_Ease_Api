@@ -25,21 +25,56 @@ namespace LifeManage.src.Infrastructure.Repositories
 			try
 			{
 				// 新增一筆(支出/收入)
-				var transaction = _mapper.Map<LedgerTransaction>(command);
-				await InsertAsync(transaction);
+				await AddLedgerTransactionAsync(command);
 
 				// 新增一筆商店造訪紀錄
-				var visitInfo = _mapper.Map<StoreVisit>(command);
-				await _context.StoreVisit.AddAsync(visitInfo);
-				await _context.SaveChangesAsync();
+				await AddStoreVisitAsync(command);
 
+				// 新增 storeCategoryLink
+				var exists = await _context.StoreCategoryLink
+										  .AnyAsync(x => x.LedgerCategoryId == command.CategoryId &&
+														 x.StoreId == command.StoreId);
+
+				if (!exists)
+				{
+					await AddStoreCategoryLinkAsync(command);
+				}
+
+				await _context.SaveChangesAsync();
 				await dbTransaction.CommitAsync();
 			}
-			catch (Exception)
+			catch (Exception e)
 			{
 				await dbTransaction.RollbackAsync();
-				throw new Exception();
+				throw new Exception(e.Message);
 			}
+		}
+
+		/// <summary>
+		/// 新增一筆(支出/收入)
+		/// </summary>
+		/// <returns></returns>
+		private async Task AddLedgerTransactionAsync(CreateLedgerCommand command)
+		{
+			var transaction = _mapper.Map<LedgerTransaction>(command);
+			await _context.LedgerTransaction.AddAsync(transaction);
+		}
+
+		/// <summary>
+		/// 新增一筆商店造訪紀錄
+		/// </summary>
+		/// <param name="command"></param>
+		/// <returns></returns>
+		private async Task AddStoreVisitAsync(CreateLedgerCommand command)
+		{
+			var visitInfo = _mapper.Map<StoreVisit>(command);
+			await _context.StoreVisit.AddAsync(visitInfo);
+		}
+
+		private async Task AddStoreCategoryLinkAsync(CreateLedgerCommand command)
+		{
+			var storeCategoryLink = _mapper.Map<StoreCategoryLink>(command);
+			await _context.StoreCategoryLink.AddAsync(storeCategoryLink);
 		}
 	}
 }

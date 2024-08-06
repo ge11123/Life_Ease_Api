@@ -126,7 +126,7 @@ namespace LifeManage.src.Domain
 			modelBuilder.Entity<StoreCategoryLink>(entity =>
 			{
 				entity.ToTable("STORE_CATEGORY_LINKS");
-				entity.HasNoKey();
+				entity.HasKey(e => new { e.StoreId, e.LedgerCategoryId });
 
 				entity.Property(e => e.StoreId).HasColumnName("STORE_ID");
 				entity.Property(e => e.LedgerCategoryId).HasColumnName("LEDGER_CATEGORY_ID");
