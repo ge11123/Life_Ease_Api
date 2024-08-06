@@ -4,7 +4,7 @@ using System.Net;
 
 namespace LifeManage.src.Application.Enums
 {
-	public enum LedgerCategoryEnum
+	public enum LedgerEnum
 	{
 		[Description("收入")]
 		Income = 0,

@@ -9,7 +9,7 @@ namespace LifeManage.src.Application.Commands.Ledger
 		public CreateLedgerCategoryValidtor()
 		{
 			RuleFor(x => x.Type)
-				.Must(type => Enum.IsDefined(typeof(LedgerCategoryEnum), type))
+				.Must(type => Enum.IsDefined(typeof(LedgerEnum), type))
 				.WithMessage("type 應為 expense 或 income");
 		}
 	}
