@@ -14,11 +14,22 @@ namespace LifeManage.src.Api.Controllers
 		}
 
 		/// <summary>
-		/// 記帳
+		/// 新增記帳
 		/// </summary>
 		/// <returns></returns>
 		[HttpPost]
 		public async Task<IActionResult> CreateLedger([FromBody] CreateLedgerCommand command)
+		{
+			return HandleCreationResult(await _mediator.Send(command));
+		}
+
+		/// <summary>
+		/// 新增記帳分類
+		/// </summary>
+		/// <returns></returns>
+		[HttpPost]
+		[Route("category")]
+		public async Task<IActionResult> CreateLedgerCategory([FromBody] CreateLedgerCategoryCommand command)
 		{
 			return HandleCreationResult(await _mediator.Send(command));
 		}

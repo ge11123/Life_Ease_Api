@@ -71,7 +71,7 @@ namespace LifeManage.src.Domain
 			{
 				entity.ToTable("LEDGER_CATEGORIES");
 
-				entity.HasNoKey();
+				entity.HasKey(x => x.CategoryId);
 
 				entity.Property(e => e.CategoryId).HasColumnName("CATEGORY_ID");
 				entity.Property(e => e.UserId).HasColumnName("USER_ID");
